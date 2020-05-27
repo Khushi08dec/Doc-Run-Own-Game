@@ -3,15 +3,17 @@ const World = Matter.World
 const Bodies = Matter.Bodies
 var engine, world
 var canvas
-var player, ground
+var player, ground, ball
+var balls = []
 
 function setup(){
     canvas = createCanvas(displayWidth, displayHeight);
 
     engine = Engine.create();
     world = engine.world;
-    player = new Player(500, 500);
-    ground = new Ground(width/2, height, width)
+    player = new Player(500, height-70);
+    ground = new Ground(width/2, height, width);
+    
 }   
 
 function draw(){
@@ -19,13 +21,29 @@ function draw(){
     Engine.update(engine);
 
     player.display();
-    ground.display();
 
-   if(player.x-ground.x < player.width/2 + ground.width/2 
-       && ground.x - player.x < player.width/2 + ground.width/2
-        && player.y-ground.y < player.height/2 + ground.height/2 
-        && ground.y - player.y < player.height/2 + ground.height/2){
-          console.log("xyz");
-        }
+    if(keyDown(RIGHT_ARROW)){
+      player.move(8, 0);
+    }
+
+    if(keyDown(LEFT_ARROW)){
+      player.move(-8, 0);
+    }
+
+  
+    ground.display();
+    
+
+   if(frameCount%50 === 0){
+     ball = new Ball(random(width), -10);
+     balls.push(ball);
+  
+   }
+
+   for(var i=0; i<balls.length; i++ ){ //starting point, ending point, incrememts 
+      balls[i].display();
+   }
 
 }
+
+
