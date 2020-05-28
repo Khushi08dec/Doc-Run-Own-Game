@@ -15,7 +15,6 @@ class Ground {
 
         fill("red")
         rect(pos.x, pos.y, this.width, this.height);
-
-        
+   
     }
 }

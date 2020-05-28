@@ -5,14 +5,28 @@ var engine, world
 var canvas
 var player, ground, ball
 var balls = []
+var life = 5
 
 function setup(){
     canvas = createCanvas(displayWidth, displayHeight);
 
     engine = Engine.create();
     world = engine.world;
-    player = new Player(500, height-70);
-    ground = new Ground(width/2, height, width);
+    player = new Player(500, height-250);
+    ground = new Ground(width/2, height-50, width);
+
+    function collsion(event){
+      var pairs = event.pairs;
+
+      for(var i = 0; i<balls.length; i++){
+        var labelA = pairs[i].bodyA.label
+        var labelB = pairs.bodyB.label
+        
+        if(labelA === virus && labelB === doc){
+          console.log("xyz");
+        }
+      }    
+    }
     
 }   
 
@@ -23,11 +37,11 @@ function draw(){
     player.display();
 
     if(keyDown(RIGHT_ARROW)){
-      player.move(8, 0);
+      Matter.Body.translate(player.body, {x:10, y:0});
     }
 
     if(keyDown(LEFT_ARROW)){
-      player.move(-8, 0);
+      Matter.Body.translate(player.body, {x:-10, y:0});
     }
 
   
@@ -45,5 +59,6 @@ function draw(){
    }
 
 }
+
 
 

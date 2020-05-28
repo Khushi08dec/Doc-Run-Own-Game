@@ -4,36 +4,29 @@ class Player {
             isStatic: true,
             'density': 0.3
         }
-        
-    this.body = Bodies.rectangle(x, y, 50, 60, options);
 
-    this.width = 50,
-    this.height = 60
+        this.image = loadImage("doc.png");
+
+        
+    this.body = Bodies.rectangle(x, y, 500, 600, options);
+
+    this.width = 500,
+    this.height = 600
 
     World.add(world, this.body)
 
     }
 
-    move(x, y){
-        this.body.position.x = this.body.position.x + x;
-        this.body.position.y = this.body.position.y + y;
-    }
-
-    hit(){
-        if(player.x-ball.x < player.width/2 + ball.width/2 &&
-            ball.x-player.x < player.width/2 + ball.width/2 &&
-            player.y - ball.y < player.height/2 + ball.height/2
-            && player.y - ball.y < player.height/2 + ball.height/2){
-                
-            }
-    }
-
     
     display(){
         var pos = this.body.position
-        rectMode(CENTER);
+
+        push();
+        translate(pos.x, pos.y);
+        imageMode(CENTER);
         fill("blue");
-        rect(pos.x, pos.y, 50, 60);
+        image(this.image, 0, 0, 500, 600);
+        pop();
 
 
     }

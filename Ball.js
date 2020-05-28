@@ -1,12 +1,13 @@
 class Ball {
     constructor(x, y){
         var options = {
-            'denisty': 0.5,
+            'density': 0.5,
             'friction': 0.5,
-            'restitution':0.6
+            'restitution':0.06
         }
+        this.image = loadImage("virus.png");
 
-        this.body = Bodies.circle(x, y, 18, options);
+        this.body = Bodies.circle(x, y, 30, options);
         this.radius = 30;
 
         World.add(world, this.body);
@@ -19,9 +20,9 @@ class Ball {
         push();
         translate(pos.x, pos.y);
 
-        ellipseMode(RADIUS);
+        imageMode(CENTER);
         fill("yellow");
-        ellipse(0, 0, 18, 18);
+        image(this.image, 0, 0, 30, 30);
         pop();
     }
 }
