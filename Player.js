@@ -1,34 +1,16 @@
 class Player {
     constructor(x, y){
-        var options = {
-            isStatic: true,
-            'density': 0.3
-        }
+        this.x = x,
+        this.y = y,
+        this.width = 150,
+        this.height = 300
 
-        this.image = loadImage("doc.png");
-
-        
-    this.body = Bodies.rectangle(x, y, 500, 600, options);
-
-    this.width = 500,
-    this.height = 600
-
-    World.add(world, this.body)
-
+        this.image = loadImage("Images/doc.png");
     }
 
-    
     display(){
-        var pos = this.body.position
-
-        push();
-        translate(pos.x, pos.y);
         imageMode(CENTER);
-        fill("blue");
-        image(this.image, 0, 0, 500, 600);
-        pop();
-
-
+        image(this.image, this.x, this.y, this.width, this.height);
     }
 
- }
+}
