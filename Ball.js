@@ -2,8 +2,8 @@ class Ball {
     constructor(x, y){
         this.x = x,
         this.y = y,
-        this.width = 30
-        this.height = 30
+        this.width = 40
+        this.height = 40
 
         this.image = loadImage("Images/virus.png");
 
@@ -25,7 +25,7 @@ class Ball {
 
     display(){
         imageMode(CENTER);
-        image(this.image, this.x, this.y, 30, 30);
+        image(this.image, this.x, this.y, 40, 40);
     }
    
     }

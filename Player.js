@@ -5,7 +5,7 @@ class Player {
         this.width = 150,
         this.height = 300
 
-        this.image = loadImage("Images/doc.png");
+        this.image = loadImage("Images/doc1.png");
     }
 
     display(){

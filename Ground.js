@@ -4,12 +4,14 @@ class Ground {
         this.y = y,
         this.width =  width,
         this.height = 75
+
+        this.image = loadImage("Images/ground.jpg");
     }
 
     display(){
         fill("blue")
-        rectMode(CENTER)
-        rect(this.x, this.y, this.width, 75);
+       imageMode(CENTER)
+        image(this.image, this.x, this.y, this.width, 75);
    
     }
 }
